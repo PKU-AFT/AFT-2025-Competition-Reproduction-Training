@@ -1,0 +1,82 @@
+[
+  {
+    "column": "factor_future_close",
+    "signal_type": "factor_error",
+    "confidence": 0.0,
+    "details": {
+      "error": "KeyError('Column not found: close')"
+    }
+  },
+  {
+    "column": "factor_future_return",
+    "signal_type": "factor_error",
+    "confidence": 0.0,
+    "details": {
+      "error": "KeyError('Column not found: close')"
+    }
+  },
+  {
+    "column": "factor_future_volume",
+    "signal_type": "factor_error",
+    "confidence": 0.0,
+    "details": {
+      "error": "KeyError('Column not found: volume')"
+    }
+  },
+  {
+    "column": "factor_momentum_ema",
+    "signal_type": "factor_error",
+    "confidence": 0.0,
+    "details": {
+      "error": "KeyError('Column not found: close')"
+    }
+  },
+  {
+    "column": "factor_obv_lag1",
+    "signal_type": "factor_error",
+    "confidence": 0.0,
+    "details": {
+      "error": "KeyError('Column not found: close')"
+    }
+  },
+  {
+    "column": "factor_ret_1d_lag1",
+    "signal_type": "factor_error",
+    "confidence": 0.0,
+    "details": {
+      "error": "KeyError('Column not found: ret_1d')"
+    }
+  },
+  {
+    "column": "factor_rsi_14",
+    "signal_type": "factor_error",
+    "confidence": 0.0,
+    "details": {
+      "error": "KeyError('Column not found: close')"
+    }
+  },
+  {
+    "column": "factor_sma_5",
+    "signal_type": "factor_error",
+    "confidence": 0.0,
+    "details": {
+      "error": "KeyError('Column not found: close')"
+    }
+  },
+  {
+    "column": "factor_volatility_10",
+    "signal_type": "factor_error",
+    "confidence": 0.0,
+    "details": {
+      "error": "KeyError('Column not found: ret_1d')"
+    }
+  },
+  {
+    "column": "factor_volume_mean5",
+    "signal_type": "factor_error",
+    "confidence": 0.0,
+    "details": {
+      "error": "KeyError('Column not found: volume')"
+    }
+  }
+]

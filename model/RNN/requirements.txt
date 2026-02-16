@@ -1,0 +1,12 @@
+# Core
+numpy
+pandas
+pyarrow
+
+# ML
+torch
+tensorboard
+
+# Monitoring
+psutil
+pynvml

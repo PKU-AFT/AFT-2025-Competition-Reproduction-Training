@@ -1,0 +1,106 @@
+[
+  {
+    "column": "factor_future_high",
+    "signal_type": "forward_replay",
+    "confidence": 1.0,
+    "details": {
+      "total_checked": 12,
+      "total_mismatch": 12,
+      "train_checked": 0,
+      "train_mismatch": 0,
+      "train_rate": 0.0,
+      "valid_checked": 12,
+      "valid_mismatch": 12,
+      "valid_rate": 1.0,
+      "examples": [
+        {
+          "index": 25,
+          "symbol": "AAPL",
+          "date": "2023-01-26 00:00:00",
+          "full": 139.314429329624,
+          "replay": null
+        },
+        {
+          "index": 26,
+          "symbol": "AAPL",
+          "date": "2023-01-27 00:00:00",
+          "full": 141.03228886430784,
+          "replay": null
+        },
+        {
+          "index": 27,
+          "symbol": "AAPL",
+          "date": "2023-01-28 00:00:00",
+          "full": 138.9879163707331,
+          "replay": null
+        },
+        {
+          "index": 28,
+          "symbol": "AAPL",
+          "date": "2023-01-29 00:00:00",
+          "full": 138.4131594576804,
+          "replay": null
+        },
+        {
+          "index": 55,
+          "symbol": "GOOGL",
+          "date": "2023-01-26 00:00:00",
+          "full": 114.56585159842491,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "factor_future_return_1d",
+    "signal_type": "forward_replay",
+    "confidence": 1.0,
+    "details": {
+      "total_checked": 12,
+      "total_mismatch": 12,
+      "train_checked": 0,
+      "train_mismatch": 0,
+      "train_rate": 0.0,
+      "valid_checked": 12,
+      "valid_mismatch": 12,
+      "valid_rate": 1.0,
+      "examples": [
+        {
+          "index": 25,
+          "symbol": "AAPL",
+          "date": "2023-01-26 00:00:00",
+          "full": -0.012183646048729568,
+          "replay": null
+        },
+        {
+          "index": 26,
+          "symbol": "AAPL",
+          "date": "2023-01-27 00:00:00",
+          "full": 0.007760453177502846,
+          "replay": null
+        },
+        {
+          "index": 27,
+          "symbol": "AAPL",
+          "date": "2023-01-28 00:00:00",
+          "full": -0.003286489665123904,
+          "replay": null
+        },
+        {
+          "index": 28,
+          "symbol": "AAPL",
+          "date": "2023-01-29 00:00:00",
+          "full": 9.194689426328395e-05,
+          "replay": null
+        },
+        {
+          "index": 55,
+          "symbol": "GOOGL",
+          "date": "2023-01-26 00:00:00",
+          "full": -0.005387101556295515,
+          "replay": null
+        }
+      ]
+    }
+  }
+]

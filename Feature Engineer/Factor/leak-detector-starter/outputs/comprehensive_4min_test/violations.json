@@ -1,0 +1,436 @@
+[
+  {
+    "column": "explicit_leak_future_close_2",
+    "signal_type": "forward_replay",
+    "confidence": 1.0,
+    "details": {
+      "total_checked": 894,
+      "total_mismatch": 894,
+      "train_checked": 720,
+      "train_mismatch": 720,
+      "train_rate": 1.0,
+      "valid_checked": 174,
+      "valid_mismatch": 174,
+      "valid_rate": 1.0,
+      "examples": [
+        {
+          "index": 0,
+          "symbol": "AAPL",
+          "datetime": "2023-01-01 09:30:00",
+          "full": 150.69042790528107,
+          "replay": null
+        },
+        {
+          "index": 1,
+          "symbol": "AAPL",
+          "datetime": "2023-01-01 09:34:00",
+          "full": 150.53215177934786,
+          "replay": null
+        },
+        {
+          "index": 2,
+          "symbol": "AAPL",
+          "datetime": "2023-01-01 09:38:00",
+          "full": 150.3720405411201,
+          "replay": null
+        },
+        {
+          "index": 3,
+          "symbol": "AAPL",
+          "datetime": "2023-01-01 09:42:00",
+          "full": 150.14107615375048,
+          "replay": null
+        },
+        {
+          "index": 4,
+          "symbol": "AAPL",
+          "datetime": "2023-01-01 09:46:00",
+          "full": 150.26629714729629,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "explicit_leak_future_close_2",
+    "signal_type": "consistency_check",
+    "confidence": 1.0,
+    "details": {
+      "train_rate": 1.0,
+      "valid_rate": 1.0,
+      "note": "Mismatches present in both train and validation windows"
+    }
+  },
+  {
+    "column": "explicit_leak_future_high_5",
+    "signal_type": "forward_replay",
+    "confidence": 1.0,
+    "details": {
+      "total_checked": 885,
+      "total_mismatch": 885,
+      "train_checked": 720,
+      "train_mismatch": 720,
+      "train_rate": 1.0,
+      "valid_checked": 165,
+      "valid_mismatch": 165,
+      "valid_rate": 1.0,
+      "examples": [
+        {
+          "index": 0,
+          "symbol": "AAPL",
+          "datetime": "2023-01-01 09:30:00",
+          "full": 150.71485030064508,
+          "replay": null
+        },
+        {
+          "index": 1,
+          "symbol": "AAPL",
+          "datetime": "2023-01-01 09:34:00",
+          "full": 150.47910892483657,
+          "replay": null
+        },
+        {
+          "index": 2,
+          "symbol": "AAPL",
+          "datetime": "2023-01-01 09:38:00",
+          "full": 150.3714355685148,
+          "replay": null
+        },
+        {
+          "index": 3,
+          "symbol": "AAPL",
+          "datetime": "2023-01-01 09:42:00",
+          "full": 150.32812260443964,
+          "replay": null
+        },
+        {
+          "index": 4,
+          "symbol": "AAPL",
+          "datetime": "2023-01-01 09:46:00",
+          "full": 150.30000689872222,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "explicit_leak_future_high_5",
+    "signal_type": "consistency_check",
+    "confidence": 1.0,
+    "details": {
+      "train_rate": 1.0,
+      "valid_rate": 1.0,
+      "note": "Mismatches present in both train and validation windows"
+    }
+  },
+  {
+    "column": "explicit_leak_future_return_1",
+    "signal_type": "forward_replay",
+    "confidence": 1.0,
+    "details": {
+      "total_checked": 897,
+      "total_mismatch": 897,
+      "train_checked": 720,
+      "train_mismatch": 720,
+      "train_rate": 1.0,
+      "valid_checked": 177,
+      "valid_mismatch": 177,
+      "valid_rate": 1.0,
+      "examples": [
+        {
+          "index": 0,
+          "symbol": "AAPL",
+          "datetime": "2023-01-01 09:30:00",
+          "full": 0.0030460597128161293,
+          "replay": null
+        },
+        {
+          "index": 1,
+          "symbol": "AAPL",
+          "datetime": "2023-01-01 09:34:00",
+          "full": 0.0005580825844002657,
+          "replay": null
+        },
+        {
+          "index": 2,
+          "symbol": "AAPL",
+          "datetime": "2023-01-01 09:38:00",
+          "full": -0.0010503396143562993,
+          "replay": null
+        },
+        {
+          "index": 3,
+          "symbol": "AAPL",
+          "datetime": "2023-01-01 09:42:00",
+          "full": -0.0010636348204365875,
+          "replay": null
+        },
+        {
+          "index": 4,
+          "symbol": "AAPL",
+          "datetime": "2023-01-01 09:46:00",
+          "full": -0.0015359530038862035,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "explicit_leak_future_return_1",
+    "signal_type": "consistency_check",
+    "confidence": 1.0,
+    "details": {
+      "train_rate": 1.0,
+      "valid_rate": 1.0,
+      "note": "Mismatches present in both train and validation windows"
+    }
+  },
+  {
+    "column": "implicit_leak_close_ma_ratio",
+    "signal_type": "forward_replay",
+    "confidence": 0.002224694104560623,
+    "details": {
+      "total_checked": 899,
+      "total_mismatch": 2,
+      "train_checked": 719,
+      "train_mismatch": 2,
+      "train_rate": 0.0027816411682892906,
+      "valid_checked": 180,
+      "valid_mismatch": 0,
+      "valid_rate": 0.0,
+      "examples": [
+        {
+          "index": 300,
+          "symbol": "GOOGL",
+          "datetime": "2023-01-01 09:30:00",
+          "full": 0.7905508054734238,
+          "replay": null
+        },
+        {
+          "index": 600,
+          "symbol": "MSFT",
+          "datetime": "2023-01-01 09:30:00",
+          "full": 2.4206097737595487,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "implicit_leak_current_volume_norm",
+    "signal_type": "forward_replay",
+    "confidence": 0.002224694104560623,
+    "details": {
+      "total_checked": 899,
+      "total_mismatch": 2,
+      "train_checked": 719,
+      "train_mismatch": 2,
+      "train_rate": 0.0027816411682892906,
+      "valid_checked": 180,
+      "valid_mismatch": 0,
+      "valid_rate": 0.0,
+      "examples": [
+        {
+          "index": 300,
+          "symbol": "GOOGL",
+          "datetime": "2023-01-01 09:30:00",
+          "full": 1.5808706025920842,
+          "replay": null
+        },
+        {
+          "index": 600,
+          "symbol": "MSFT",
+          "datetime": "2023-01-01 09:30:00",
+          "full": 1.7184498293436203,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "safe_close_ma5",
+    "signal_type": "forward_replay",
+    "confidence": 0.002224694104560623,
+    "details": {
+      "total_checked": 899,
+      "total_mismatch": 2,
+      "train_checked": 719,
+      "train_mismatch": 2,
+      "train_rate": 0.0027816411682892906,
+      "valid_checked": 180,
+      "valid_mismatch": 0,
+      "valid_rate": 0.0,
+      "examples": [
+        {
+          "index": 300,
+          "symbol": "GOOGL",
+          "datetime": "2023-01-01 09:30:00",
+          "full": 151.32034464588648,
+          "replay": null
+        },
+        {
+          "index": 600,
+          "symbol": "MSFT",
+          "datetime": "2023-01-01 09:30:00",
+          "full": 115.41025895843147,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "safe_momentum_5",
+    "signal_type": "forward_replay",
+    "confidence": 0.0022624434389140274,
+    "details": {
+      "total_checked": 884,
+      "total_mismatch": 2,
+      "train_checked": 704,
+      "train_mismatch": 2,
+      "train_rate": 0.002840909090909091,
+      "valid_checked": 180,
+      "valid_mismatch": 0,
+      "valid_rate": 0.0,
+      "examples": [
+        {
+          "index": 300,
+          "symbol": "GOOGL",
+          "datetime": "2023-01-01 09:30:00",
+          "full": -0.0031532064174025765,
+          "replay": null
+        },
+        {
+          "index": 600,
+          "symbol": "MSFT",
+          "datetime": "2023-01-01 09:30:00",
+          "full": -0.003086399451348809,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "safe_range_ratio",
+    "signal_type": "forward_replay",
+    "confidence": 0.002224694104560623,
+    "details": {
+      "total_checked": 899,
+      "total_mismatch": 2,
+      "train_checked": 719,
+      "train_mismatch": 2,
+      "train_rate": 0.0027816411682892906,
+      "valid_checked": 180,
+      "valid_mismatch": 0,
+      "valid_rate": 0.0,
+      "examples": [
+        {
+          "index": 300,
+          "symbol": "GOOGL",
+          "datetime": "2023-01-01 09:30:00",
+          "full": 0.0026973515229296204,
+          "replay": null
+        },
+        {
+          "index": 600,
+          "symbol": "MSFT",
+          "datetime": "2023-01-01 09:30:00",
+          "full": 0.0037783360598509664,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "safe_volatility_10",
+    "signal_type": "forward_replay",
+    "confidence": 0.0022396416573348264,
+    "details": {
+      "total_checked": 893,
+      "total_mismatch": 2,
+      "train_checked": 713,
+      "train_mismatch": 2,
+      "train_rate": 0.002805049088359046,
+      "valid_checked": 180,
+      "valid_mismatch": 0,
+      "valid_rate": 0.0,
+      "examples": [
+        {
+          "index": 300,
+          "symbol": "GOOGL",
+          "datetime": "2023-01-01 09:30:00",
+          "full": 0.002284929553888204,
+          "replay": null
+        },
+        {
+          "index": 600,
+          "symbol": "MSFT",
+          "datetime": "2023-01-01 09:30:00",
+          "full": 0.0010763456491724279,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "safe_volume_ma10",
+    "signal_type": "forward_replay",
+    "confidence": 0.002224694104560623,
+    "details": {
+      "total_checked": 899,
+      "total_mismatch": 2,
+      "train_checked": 719,
+      "train_mismatch": 2,
+      "train_rate": 0.0027816411682892906,
+      "valid_checked": 180,
+      "valid_mismatch": 0,
+      "valid_rate": 0.0,
+      "examples": [
+        {
+          "index": 300,
+          "symbol": "GOOGL",
+          "datetime": "2023-01-01 09:30:00",
+          "full": 58508.9,
+          "replay": null
+        },
+        {
+          "index": 600,
+          "symbol": "MSFT",
+          "datetime": "2023-01-01 09:30:00",
+          "full": 51741.4,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "safe_vwap_deviation",
+    "signal_type": "forward_replay",
+    "confidence": 0.002224694104560623,
+    "details": {
+      "total_checked": 899,
+      "total_mismatch": 2,
+      "train_checked": 719,
+      "train_mismatch": 2,
+      "train_rate": 0.0027816411682892906,
+      "valid_checked": 180,
+      "valid_mismatch": 0,
+      "valid_rate": 0.0,
+      "examples": [
+        {
+          "index": 300,
+          "symbol": "GOOGL",
+          "datetime": "2023-01-01 09:30:00",
+          "full": -0.00014770405718314233,
+          "replay": null
+        },
+        {
+          "index": 600,
+          "symbol": "MSFT",
+          "datetime": "2023-01-01 09:30:00",
+          "full": -0.0005085906549101316,
+          "replay": null
+        }
+      ]
+    }
+  }
+]

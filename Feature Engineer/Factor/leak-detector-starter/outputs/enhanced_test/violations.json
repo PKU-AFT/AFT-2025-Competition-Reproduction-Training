@@ -1,0 +1,270 @@
+[
+  {
+    "column": "leak_future_high_5d",
+    "signal_type": "forward_replay",
+    "confidence": 0.9652173913043478,
+    "details": {
+      "total_checked": 115,
+      "total_mismatch": 111,
+      "train_checked": 0,
+      "train_mismatch": 0,
+      "train_rate": 0.0,
+      "valid_checked": 115,
+      "valid_mismatch": 111,
+      "valid_rate": 0.9652173913043478,
+      "examples": [
+        {
+          "index": 3384,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:30:00",
+          "full": 83.87,
+          "replay": null
+        },
+        {
+          "index": 3385,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:35:00",
+          "full": 83.95,
+          "replay": null
+        },
+        {
+          "index": 3386,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:40:00",
+          "full": 83.95,
+          "replay": null
+        },
+        {
+          "index": 3387,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:45:00",
+          "full": 83.95,
+          "replay": null
+        },
+        {
+          "index": 3388,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:50:00",
+          "full": 83.95,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "leak_future_return_1d",
+    "signal_type": "forward_replay",
+    "confidence": 1.0,
+    "details": {
+      "total_checked": 115,
+      "total_mismatch": 115,
+      "train_checked": 0,
+      "train_mismatch": 0,
+      "train_rate": 0.0,
+      "valid_checked": 115,
+      "valid_mismatch": 115,
+      "valid_rate": 1.0,
+      "examples": [
+        {
+          "index": 3384,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:30:00",
+          "full": 0.0004792140888942864,
+          "replay": null
+        },
+        {
+          "index": 3385,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:35:00",
+          "full": -0.0017961920728056802,
+          "replay": null
+        },
+        {
+          "index": 3386,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:40:00",
+          "full": 0.0010796545105566935,
+          "replay": null
+        },
+        {
+          "index": 3387,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:45:00",
+          "full": 0.002756141402037171,
+          "replay": null
+        },
+        {
+          "index": 3388,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:50:00",
+          "full": 0.0013145315487572695,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "leak_future_trend",
+    "signal_type": "forward_replay",
+    "confidence": 1.0,
+    "details": {
+      "total_checked": 70,
+      "total_mismatch": 70,
+      "train_checked": 0,
+      "train_mismatch": 0,
+      "train_rate": 0.0,
+      "valid_checked": 70,
+      "valid_mismatch": 70,
+      "valid_rate": 1.0,
+      "examples": [
+        {
+          "index": 3384,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:30:00",
+          "full": -0.009344674733425982,
+          "replay": null
+        },
+        {
+          "index": 3385,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:35:00",
+          "full": -0.01125613698956875,
+          "replay": null
+        },
+        {
+          "index": 3386,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:40:00",
+          "full": -0.010076775431849757,
+          "replay": null
+        },
+        {
+          "index": 3387,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:45:00",
+          "full": -0.008508088675843704,
+          "replay": null
+        },
+        {
+          "index": 3388,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:50:00",
+          "full": -0.006333652007640627,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "leak_future_volatility",
+    "signal_type": "forward_replay",
+    "confidence": 1.0,
+    "details": {
+      "total_checked": 70,
+      "total_mismatch": 70,
+      "train_checked": 0,
+      "train_mismatch": 0,
+      "train_rate": 0.0,
+      "valid_checked": 70,
+      "valid_mismatch": 70,
+      "valid_rate": 1.0,
+      "examples": [
+        {
+          "index": 3384,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:30:00",
+          "full": 0.00430889324608162,
+          "replay": null
+        },
+        {
+          "index": 3385,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:35:00",
+          "full": 0.004281900260174555,
+          "replay": null
+        },
+        {
+          "index": 3386,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:40:00",
+          "full": 0.004277655375646223,
+          "replay": null
+        },
+        {
+          "index": 3387,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:45:00",
+          "full": 0.004391416353338917,
+          "replay": null
+        },
+        {
+          "index": 3388,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:50:00",
+          "full": 0.004639850561631717,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "leak_future_volume",
+    "signal_type": "forward_replay",
+    "confidence": 1.0,
+    "details": {
+      "total_checked": 115,
+      "total_mismatch": 115,
+      "train_checked": 0,
+      "train_mismatch": 0,
+      "train_rate": 0.0,
+      "valid_checked": 115,
+      "valid_mismatch": 115,
+      "valid_rate": 1.0,
+      "examples": [
+        {
+          "index": 3384,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:30:00",
+          "full": 85913.0,
+          "replay": null
+        },
+        {
+          "index": 3385,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:35:00",
+          "full": 158227.0,
+          "replay": null
+        },
+        {
+          "index": 3386,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:40:00",
+          "full": 147938.0,
+          "replay": null
+        },
+        {
+          "index": 3387,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:45:00",
+          "full": 73576.0,
+          "replay": null
+        },
+        {
+          "index": 3388,
+          "symbol": "AAPL",
+          "datetime": "2023-04-10 11:50:00",
+          "full": 51149.0,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "leak_intraday_high",
+    "signal_type": "shape_mismatch",
+    "confidence": 1.0,
+    "details": {
+      "message": "factor output must be a Series aligned to df index"
+    }
+  }
+]

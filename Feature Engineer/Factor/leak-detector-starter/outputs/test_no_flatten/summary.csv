@@ -1,0 +1,11 @@
+factor,signal_type,confidence,extra
+factor_future_close,factor_error,0.0,"{'error': ""KeyError('Column not found: close')""}"
+factor_future_return,factor_error,0.0,"{'error': ""KeyError('Column not found: close')""}"
+factor_future_volume,factor_error,0.0,"{'error': ""KeyError('Column not found: volume')""}"
+factor_momentum_ema,factor_error,0.0,"{'error': ""KeyError('Column not found: close')""}"
+factor_obv_lag1,factor_error,0.0,"{'error': ""KeyError('Column not found: close')""}"
+factor_ret_1d_lag1,factor_error,0.0,"{'error': ""KeyError('Column not found: ret_1d')""}"
+factor_rsi_14,factor_error,0.0,"{'error': ""KeyError('Column not found: close')""}"
+factor_sma_5,factor_error,0.0,"{'error': ""KeyError('Column not found: close')""}"
+factor_volatility_10,factor_error,0.0,"{'error': ""KeyError('Column not found: ret_1d')""}"
+factor_volume_mean5,factor_error,0.0,"{'error': ""KeyError('Column not found: volume')""}"

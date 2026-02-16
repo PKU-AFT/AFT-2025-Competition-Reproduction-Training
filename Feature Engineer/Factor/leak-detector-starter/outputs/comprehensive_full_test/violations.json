@@ -1,0 +1,343 @@
+[
+  {
+    "column": "explicit_leak_future_price",
+    "signal_type": "forward_replay",
+    "confidence": 1.0,
+    "details": {
+      "total_checked": 84,
+      "total_mismatch": 84,
+      "train_checked": 72,
+      "train_mismatch": 72,
+      "train_rate": 1.0,
+      "valid_checked": 12,
+      "valid_mismatch": 12,
+      "valid_rate": 1.0,
+      "examples": [
+        {
+          "index": 0,
+          "symbol": "AAPL",
+          "date": "2023-01-01 00:00:00",
+          "full": 153.5601346528335,
+          "replay": null
+        },
+        {
+          "index": 1,
+          "symbol": "AAPL",
+          "date": "2023-01-02 00:00:00",
+          "full": 153.06361885905923,
+          "replay": null
+        },
+        {
+          "index": 2,
+          "symbol": "AAPL",
+          "date": "2023-01-03 00:00:00",
+          "full": 154.88428933596805,
+          "replay": null
+        },
+        {
+          "index": 3,
+          "symbol": "AAPL",
+          "date": "2023-01-04 00:00:00",
+          "full": 157.08496871078486,
+          "replay": null
+        },
+        {
+          "index": 4,
+          "symbol": "AAPL",
+          "date": "2023-01-05 00:00:00",
+          "full": 157.3878770230122,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "explicit_leak_future_price",
+    "signal_type": "consistency_check",
+    "confidence": 1.0,
+    "details": {
+      "train_rate": 1.0,
+      "valid_rate": 1.0,
+      "note": "Mismatches present in both train and validation windows"
+    }
+  },
+  {
+    "column": "explicit_leak_future_return",
+    "signal_type": "forward_replay",
+    "confidence": 1.0,
+    "details": {
+      "total_checked": 87,
+      "total_mismatch": 87,
+      "train_checked": 72,
+      "train_mismatch": 72,
+      "train_rate": 1.0,
+      "valid_checked": 15,
+      "valid_mismatch": 15,
+      "valid_rate": 1.0,
+      "examples": [
+        {
+          "index": 0,
+          "symbol": "AAPL",
+          "date": "2023-01-01 00:00:00",
+          "full": -0.02094897775807414,
+          "replay": null
+        },
+        {
+          "index": 1,
+          "symbol": "AAPL",
+          "date": "2023-01-02 00:00:00",
+          "full": 0.03759426795933396,
+          "replay": null
+        },
+        {
+          "index": 2,
+          "symbol": "AAPL",
+          "date": "2023-01-03 00:00:00",
+          "full": -0.0032333638863810688,
+          "replay": null
+        },
+        {
+          "index": 3,
+          "symbol": "AAPL",
+          "date": "2023-01-04 00:00:00",
+          "full": 0.011894861041965132,
+          "replay": null
+        },
+        {
+          "index": 4,
+          "symbol": "AAPL",
+          "date": "2023-01-05 00:00:00",
+          "full": 0.014208538414397953,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "explicit_leak_future_return",
+    "signal_type": "consistency_check",
+    "confidence": 1.0,
+    "details": {
+      "train_rate": 1.0,
+      "valid_rate": 1.0,
+      "note": "Mismatches present in both train and validation windows"
+    }
+  },
+  {
+    "column": "implicit_leak_close_momentum",
+    "signal_type": "forward_replay",
+    "confidence": 0.02702702702702703,
+    "details": {
+      "total_checked": 74,
+      "total_mismatch": 2,
+      "train_checked": 56,
+      "train_mismatch": 2,
+      "train_rate": 0.03571428571428571,
+      "valid_checked": 18,
+      "valid_mismatch": 0,
+      "valid_rate": 0.0,
+      "examples": [
+        {
+          "index": 30,
+          "symbol": "GOOGL",
+          "date": "2023-01-01 00:00:00",
+          "full": 0.11498225885278801,
+          "replay": null
+        },
+        {
+          "index": 60,
+          "symbol": "MSFT",
+          "date": "2023-01-01 00:00:00",
+          "full": -0.025621017379881428,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "implicit_leak_daily_range",
+    "signal_type": "forward_replay",
+    "confidence": 0.02247191011235955,
+    "details": {
+      "total_checked": 89,
+      "total_mismatch": 2,
+      "train_checked": 71,
+      "train_mismatch": 2,
+      "train_rate": 0.028169014084507043,
+      "valid_checked": 18,
+      "valid_mismatch": 0,
+      "valid_rate": 0.0,
+      "examples": [
+        {
+          "index": 30,
+          "symbol": "GOOGL",
+          "date": "2023-01-01 00:00:00",
+          "full": 0.021049408311999113,
+          "replay": null
+        },
+        {
+          "index": 60,
+          "symbol": "MSFT",
+          "date": "2023-01-01 00:00:00",
+          "full": 0.020571451417344677,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "implicit_leak_high_ratio",
+    "signal_type": "forward_replay",
+    "confidence": 0.02247191011235955,
+    "details": {
+      "total_checked": 89,
+      "total_mismatch": 2,
+      "train_checked": 71,
+      "train_mismatch": 2,
+      "train_rate": 0.028169014084507043,
+      "valid_checked": 18,
+      "valid_mismatch": 0,
+      "valid_rate": 0.0,
+      "examples": [
+        {
+          "index": 30,
+          "symbol": "GOOGL",
+          "date": "2023-01-01 00:00:00",
+          "full": 1.0010913151731418,
+          "replay": null
+        },
+        {
+          "index": 60,
+          "symbol": "MSFT",
+          "date": "2023-01-01 00:00:00",
+          "full": 1.002196911281794,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "implicit_leak_volume_norm",
+    "signal_type": "forward_replay",
+    "confidence": 0.02247191011235955,
+    "details": {
+      "total_checked": 89,
+      "total_mismatch": 2,
+      "train_checked": 71,
+      "train_mismatch": 2,
+      "train_rate": 0.028169014084507043,
+      "valid_checked": 18,
+      "valid_mismatch": 0,
+      "valid_rate": 0.0,
+      "examples": [
+        {
+          "index": 30,
+          "symbol": "GOOGL",
+          "date": "2023-01-01 00:00:00",
+          "full": 1.0073751842175236,
+          "replay": null
+        },
+        {
+          "index": 60,
+          "symbol": "MSFT",
+          "date": "2023-01-01 00:00:00",
+          "full": 1.0293905977055537,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "safe_open_momentum",
+    "signal_type": "forward_replay",
+    "confidence": 0.02702702702702703,
+    "details": {
+      "total_checked": 74,
+      "total_mismatch": 2,
+      "train_checked": 56,
+      "train_mismatch": 2,
+      "train_rate": 0.03571428571428571,
+      "valid_checked": 18,
+      "valid_mismatch": 0,
+      "valid_rate": 0.0,
+      "examples": [
+        {
+          "index": 30,
+          "symbol": "GOOGL",
+          "date": "2023-01-01 00:00:00",
+          "full": 0.10872691754897112,
+          "replay": null
+        },
+        {
+          "index": 60,
+          "symbol": "MSFT",
+          "date": "2023-01-01 00:00:00",
+          "full": -0.02109587078529862,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "safe_price_ma5",
+    "signal_type": "forward_replay",
+    "confidence": 0.02247191011235955,
+    "details": {
+      "total_checked": 89,
+      "total_mismatch": 2,
+      "train_checked": 71,
+      "train_mismatch": 2,
+      "train_rate": 0.028169014084507043,
+      "valid_checked": 18,
+      "valid_mismatch": 0,
+      "valid_rate": 0.0,
+      "examples": [
+        {
+          "index": 30,
+          "symbol": "GOOGL",
+          "date": "2023-01-01 00:00:00",
+          "full": 167.89938748484713,
+          "replay": null
+        },
+        {
+          "index": 60,
+          "symbol": "MSFT",
+          "date": "2023-01-01 00:00:00",
+          "full": 128.20929598918102,
+          "replay": null
+        }
+      ]
+    }
+  },
+  {
+    "column": "safe_volume_growth",
+    "signal_type": "forward_replay",
+    "confidence": 0.023255813953488372,
+    "details": {
+      "total_checked": 86,
+      "total_mismatch": 2,
+      "train_checked": 68,
+      "train_mismatch": 2,
+      "train_rate": 0.029411764705882353,
+      "valid_checked": 18,
+      "valid_mismatch": 0,
+      "valid_rate": 0.0,
+      "examples": [
+        {
+          "index": 30,
+          "symbol": "GOOGL",
+          "date": "2023-01-01 00:00:00",
+          "full": 3.0484068627450984,
+          "replay": null
+        },
+        {
+          "index": 60,
+          "symbol": "MSFT",
+          "date": "2023-01-01 00:00:00",
+          "full": -0.6950096899224807,
+          "replay": null
+        }
+      ]
+    }
+  }
+]

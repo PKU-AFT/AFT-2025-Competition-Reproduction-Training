@@ -1,2 +1,13 @@
 # ReCode local database
 .recode
+
+# Local caches and operating system metadata
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+desktop.ini
+
+# Python project environment
+.venv/

@@ -1,51 +1,22 @@
-# 项目说明
+# RNN 时间序列模型
 
-时间序列回归项目，基于滑动窗口 (80 天训练 / 10 天验证 / 10 天测试) 的滚动训练流程，输入为 `[batch, T, F]` 的特征序列，输出单步回归预测。
+本目录包含面板时间序列数据处理、多种模型，以及滚动训练、推理和集成代码。
 
-## 目录结构
-- `config.py`：全局超参数与路径配置（数据路径、滑窗长度、训练/验证/测试天数、模型尺寸、输出目录等）。
-- `data.py`：核心数据集与采样工具
-  - `TSDataset`：将按 `time_id, stock_id` 排序的面板数据转换为滑动窗口张量，可返回目标和索引。
-  - `DailyBatchSamplerRandom`：按天分批的采样器（可选 shuffle），与 `DataLoader` 配合。
-- `dataset.py`：数据读取与数据集构建
-  - `read_data`：读取 Parquet，构造 `time_id`（`date_id * 10000 + seconds_in_bucket`），拆分出 `target`，返回 pandas MultiIndex 的特征与标签。
-  - `generate_rolling_windows`：基于唯一 `time_id` 生成 80/20/20 的滚动窗口（步长为测试窗口）。
-  - `build_datasets_for_window`：按窗口切片构造 train/val/test 的 `TSDataset`。
-  - `make_loader` / `make_test_loader`：构造按天分批的 DataLoader。
-- `model/`
-  - `model.py`：`TemporalModel`，GRU 序列编码，取最后一步 hidden，经 MLP 头输出回归值。
-- `utils.py`：常用工具：`set_seed`、`ensure_dirs`、`get_logger`、`mae`（MAE 度量）。
-- `train.py`：训练主流程（滚动窗口、TensorBoard 记录、保存最佳权重与预测）。
-- `inference.py`：推理脚本（加载模型，对最后窗口测试切片预测并导出 CSV）。
-- `output/`：运行时生成
-  - `models/`：各窗口最佳权重。
-  - `preds/`：预测结果 CSV。
-  - `logs/`：训练/推理日志与 TensorBoard 日志。
+## 运行准备
 
-## 数据要求
-- Parquet 文件需包含列：`date_id`, `seconds_in_bucket`, `stock_id`, 其他特征列，以及 `target` 列。
-- `time_id = date_id * 10000 + seconds_in_bucket`，索引用 MultiIndex(`time_id`, `stock_id`)。
-- 数据需覆盖至少 120 个 `time_id` 才能生成一个完整的 80/20/20 滑窗；不足时可调整 `TRAIN_DAYS/VAL_DAYS/TEST_DAYS`。
+训练需要补齐 `utils.py` 和 `losses.py`；推理也需要 `utils.py`。项目根目录的 `uv` 配置提供 `training` 依赖分组，安装方法见[项目首页](../../README.md#python-环境)。修改 `config.py` 中的 `DATA_PATH`，使其指向实际数据文件。
 
-## 训练方式（滚动窗口）
-- 每个窗口：80 天训练 / 20 天验证 / 20 天测试，步长为 20（测试窗口长度）。
-- 模型：GRU（长度 `STEP_LEN`，默认 10），取最后一步做回归。
-- 优化：Adam，损失与度量均为 MAE。
-- 每个窗口保存验证集最优的模型权重至 `output/models/window_*.pth`，并在对应测试切片上评估，预测导出到 `output/preds/window_*_preds.csv`。
+## 主要文件
 
-## 快速开始
-1. 配置数据路径与超参  
-   - 修改 `config.py` 中的 `DATA_PATH`，按需调整其他超参。
-2. 运行训练  
-   ```bash
-   python train.py
-   ```
-   - TensorBoard 日志在 `output/logs/window_*`，可用 `tensorboard --logdir output/logs` 查看。
-3. 运行推理  
-   - 默认加载最新权重：`python inference.py`  
-   - 或指定权重：`python inference.py output/models/window_0.pth`  
-   - 结果输出到 `output/preds/`。
+- `config.py`：数据、窗口、模型及输出配置。
+- `dataset.py`、`data.py`：数据读取与序列构建。
+- `model/`：模型实现与注册。
+- `train.py`、`inference.py`、`ensemble.py`、`hpo.py`：训练、推理、集成和超参数搜索。
 
-## 备注
-- 当前仅依赖 pandas 读取数据，无需 Polars。
-- 若内存有限，可在外部先对 Parquet 做列/时间范围筛选后再运行脚本。 
+## 数据与配置
+
+输入为 Parquet 文件，包含 `date_id`、`seconds_in_bucket`、`stock_id`、`target` 和数值型特征列。代码以 `date_id * 10000 + seconds_in_bucket` 构造 `time_id`，并建立 `(time_id, stock_id)` 索引；目标缺失的行会被删除，特征缺失值填零。
+
+默认模型为 GRU，输入序列长度为 10；每个窗口使用 160 个交易日训练、40 个交易日验证，步长为 20 个交易日，并将最后 81 个交易日作为固定测试集。设置 `FINAL_TEST_DAYS = None` 后，改用长度为 40 个交易日的滚动测试窗口。参数可在 `config.py` 中调整。
+
+运行目录下的 `output/models/`、`output/preds/` 和 `output/logs/` 分别存放权重、预测和日志，并按模型类型分目录。补齐文件、依赖和数据后，可在本目录使用 `uv run --locked --group training python train.py` 尝试训练。

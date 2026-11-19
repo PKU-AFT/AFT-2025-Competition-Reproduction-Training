@@ -1,0 +1,44 @@
+[project]
+name = "aft-2025-reproduction-training"
+version = "0.1.0"
+description = "Research environment for AFT 2025 competition reproduction"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+]
+
+[dependency-groups]
+training = [
+    "pyarrow",
+    "scikit-learn",
+    "scipy",
+    "tensorboard",
+    "torch>=2.3",
+]
+features = [
+    "matplotlib",
+    "pyarrow",
+    "numba",
+    "polars",
+    "scikit-learn",
+    "scipy",
+    "seaborn",
+    "statsmodels",
+]
+hpo = [
+    { include-group = "training" },
+    "matplotlib",
+    "optuna",
+    "seaborn",
+]
+monitor = [
+    { include-group = "training" },
+    "nvidia-ml-py",
+    "psutil",
+]
+dev = ["pytest>=7"]
+
+[tool.uv]
+package = false
+default-groups = []

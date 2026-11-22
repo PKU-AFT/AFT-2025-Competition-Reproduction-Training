@@ -38,8 +38,8 @@ uv run --locked --group dev pytest tests
 
 ## 拍卖特征与算子流程
 
-1. 在 `Feature Engineer/Factor/Factor/` 中准备 `train.csv`，运行 `Factor.ipynb`，生成 `train_auction_features.parquet`。价格缺失值按股票和日期分组，只在当天按时间向前填充。
-2. 从 `Feature Engineer/Operator/` 运行 `test.ipynb`；默认读取上一步的文件。IC 和相关性筛选使用 `date_id` 0–400，保留的特征仍覆盖输入文件的全部日期。合并结果保存在 `data/output/merged_features.parquet`，仅使用本次运行成功生成的算子文件。
+1. 在 `Feature Engineer/Factor/Factor/` 中准备 `train.csv`，运行 `Factor.ipynb`，仅使用 `date_id` 0～400 生成 `train_auction_features.parquet`。价格缺失值按股票和日期分组，只在当天按时间向前填充。
+2. 从 `Feature Engineer/Operator/` 运行 `test.ipynb`；默认读取上一步的文件。算子输入、IC 和相关性筛选均使用 `date_id` 0～400，结果也只保留该日期范围。合并结果保存在 `data/output/merged_features.parquet`，仅使用本次运行成功生成的算子文件。
 
 算子失败会中止执行；历史 notebook 输出不代表当前代码重新计算的结果。此流程不保证复现历史 543 列结果，运行完整数据前应核验数据与可用内存。
 

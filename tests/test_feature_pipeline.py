@@ -68,3 +68,25 @@ def test_merge_rejects_duplicate_or_missing_keys(tmp_path):
     pl.DataFrame({'stock_id': [1], 'date_id': [0], 'seconds_in_bucket': [0], 'new': [1]}).write_parquet(path)
     with pytest.raises(ValueError, match='keys'):
         merge_operator_files(base, [path])
+
+
+@pytest.mark.parametrize('relative_path', [
+    'Feature Engineer/Operator/src/single_factor_test.py',
+    'Feature Engineer/Factor/Factor/single_factor_test.py',
+])
+def test_backtest_runs_with_locked_polars(relative_path):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('aft_single_factor_test', ROOT / relative_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    df = pl.DataFrame({
+        'date_id': [0, 0, 0, 1, 1, 1],
+        'seconds_in_bucket': [0, 0, 0, 0, 0, 0],
+        'factor': [1., 2., 3., 1., 2., 3.],
+        'target': [1., 2., 3., 1., 2., 3.],
+    })
+    result = module.backtest(df, ['factor'])
+    if isinstance(result, tuple):
+        _, result = result
+    assert result.loc[0, 'ic'] == pytest.approx(1.)
+    assert result.loc[0, 'rankic'] == pytest.approx(1.)

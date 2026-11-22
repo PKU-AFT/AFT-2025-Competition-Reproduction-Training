@@ -38,7 +38,7 @@ def _melt_metric(df: pl.DataFrame, value_cols: List[str], suffix: str, value_nam
 
     return (
         df.select(value_cols)
-        .melt(variable_name="factor", value_name=value_name)
+        .unpivot(variable_name="factor", value_name=value_name)
         .with_columns(
             pl.col("factor").str.replace(f"{suffix}$", "", literal=False)
         )

@@ -695,7 +695,7 @@ class Operators:
             target_cols.append(target_name)
             mean_exprs.append(
                 pl.col('wap')
-                .rolling_mean(window_size=window, min_periods=1)
+                .rolling_mean(window_size=window, min_samples=1)
                 .over(ts_group_col)
                 .alias(target_name)
             )
@@ -907,8 +907,8 @@ class Operators:
         """时序标准化 - 滚动窗口内标准化"""
         exprs = [
             (
-                (pl.col(col) - pl.col(col).rolling_mean(window_size=window, min_periods=1))
-                / pl.col(col).rolling_std(window_size=window, min_periods=1).fill_nan(0)
+                (pl.col(col) - pl.col(col).rolling_mean(window_size=window, min_samples=1))
+                / pl.col(col).rolling_std(window_size=window, min_samples=1).fill_nan(0)
             )
             .over(group_col)
             .alias(f"ts_zscore_{col}_{window}")
@@ -1024,11 +1024,11 @@ class Operators:
             df.with_row_index(helper_col)
             .with_columns(
                 pl.col(target_col)
-                .rolling_mean(5, min_periods=1)
+                .rolling_mean(5, min_samples=1)
                 .over(group_col)
                 .alias(target_mean_5_col),
                 pl.col(target_col)
-                .rolling_mean(10, min_periods=1)
+                .rolling_mean(10, min_samples=1)
                 .over(group_col)
                 .alias(target_mean_10_col),
             )
@@ -1091,7 +1091,7 @@ class Operators:
             base = pl.col(col)
             for window in windows:
                 exprs.append(
-                    base.rolling_mean(window_size=window, min_periods=1)
+                    base.rolling_mean(window_size=window, min_samples=1)
                     .over(group_col)
                     .alias(f"ts_mean_{col}_{window}")
                 )
@@ -1113,7 +1113,7 @@ class Operators:
             base = pl.col(col)
             for window in windows:
                 exprs.append(
-                    base.rolling_std(window_size=window, min_periods=1, ddof=1)
+                    base.rolling_std(window_size=window, min_samples=1, ddof=1)
                     .over(group_col)
                     .alias(f"ts_std_{col}_{window}")
                 )

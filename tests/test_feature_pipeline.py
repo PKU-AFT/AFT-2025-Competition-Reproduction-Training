@@ -90,3 +90,13 @@ def test_backtest_runs_with_locked_polars(relative_path):
         _, result = result
     assert result.loc[0, 'ic'] == pytest.approx(1.)
     assert result.loc[0, 'rankic'] == pytest.approx(1.)
+
+
+def test_correlation_screening_supports_pandas_copy_on_write():
+    from src.utils import filter_correlated_factors
+    df = pl.DataFrame({'date_id': [0, 0, 0, 0, 0, 0, 0, 0], 'a': [1., 2., 3., 4., 5., 6., 7., 8.], 'b': [2., 4., 6., 8., 10., 12., 14., 16.]})
+    ic = pd.DataFrame({'factor': ['a', 'b'], 'ic': [0.2, 0.1]})
+    for method in ('corr_csall', 'corr_cs1'):
+        kept, removed = filter_correlated_factors(df, ['a', 'b'], ic, corr_threshold=0.8, method=method)
+        assert kept == ['a']
+        assert removed == ['b']

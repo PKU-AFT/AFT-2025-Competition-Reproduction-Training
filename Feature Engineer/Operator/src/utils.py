@@ -219,11 +219,9 @@ def _aggregate_corr_matrices(
             out=np.zeros_like(sum_matrix),
         )
 
-    result = pd.DataFrame(averaged, index=cols, columns=cols)
-    diag_mask = np.eye(size, dtype=bool)
-    diag_counts = count_matrix[diag_mask]
-    result.values[diag_mask & (diag_counts > 0)] = 1.0
-    return result
+    diag_idx = np.diag_indices(size)
+    averaged[diag_idx] = np.where(count_matrix[diag_idx] > 0, 1.0, averaged[diag_idx])
+    return pd.DataFrame(averaged, index=cols, columns=cols)
 
 
 def _compute_factor_corr_matrix(
@@ -376,8 +374,9 @@ def _select_by_hierarchical_clustering(
     if len(cols) <= 1:
         return list(cols), []
 
-    corr_abs = corr_matrix.loc[cols, cols].fillna(0.0)
-    np.fill_diagonal(corr_abs.values, 1.0)
+    corr_values = corr_matrix.loc[cols, cols].fillna(0.0).to_numpy(copy=True)
+    np.fill_diagonal(corr_values, 1.0)
+    corr_abs = pd.DataFrame(corr_values, index=cols, columns=cols)
 
     def _choose_labels_silhouette(corr_abs: pd.DataFrame, taus: tuple[float, ...]) -> np.ndarray:
         """

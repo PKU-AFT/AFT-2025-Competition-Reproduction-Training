@@ -109,3 +109,17 @@ def test_rolling_operators_work_with_locked_polars():
     assert result['ts_mean_a_2'].to_list() == [1., 2., 4., 10.]
     result = Operators.ts_std(df, ['a'], windows=[2])
     assert result['ts_std_a_2'][1] == pytest.approx(2 ** 0.5)
+
+
+def test_operator_notebook_does_not_silently_skip_failed_operator(tmp_path, monkeypatch):
+    notebook = json.loads((OPERATOR_DIR / 'test.ipynb').read_text())
+    source = ''.join(notebook['cells'][18]['source'])
+    class BrokenOps:
+        @staticmethod
+        def fail(*args, **kwargs):
+            raise ValueError('broken operator')
+        ts_rsi = ts_ema = ts_momentum = ts_mean = fail
+    monkeypatch.chdir(tmp_path)
+    env = {'ops': BrokenOps, 'df': object(), 'cols': ['a'], 'pd': pd, 'Path': Path}
+    with pytest.raises(RuntimeError, match='ts_rsi'):
+        exec(source, env)

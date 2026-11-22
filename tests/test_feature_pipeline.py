@@ -100,3 +100,12 @@ def test_correlation_screening_supports_pandas_copy_on_write():
         kept, removed = filter_correlated_factors(df, ['a', 'b'], ic, corr_threshold=0.8, method=method)
         assert kept == ['a']
         assert removed == ['b']
+
+
+def test_rolling_operators_work_with_locked_polars():
+    from operators import Operators
+    df = pl.DataFrame({'stock_id': [1, 1, 1, 2], 'a': [1., 3., 5., 10.]})
+    result = Operators.ts_mean(df, ['a'], windows=[2])
+    assert result['ts_mean_a_2'].to_list() == [1., 2., 4., 10.]
+    result = Operators.ts_std(df, ['a'], windows=[2])
+    assert result['ts_std_a_2'][1] == pytest.approx(2 ** 0.5)

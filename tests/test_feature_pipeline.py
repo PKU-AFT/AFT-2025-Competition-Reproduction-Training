@@ -123,3 +123,22 @@ def test_operator_notebook_does_not_silently_skip_failed_operator(tmp_path, monk
     env = {'ops': BrokenOps, 'df': object(), 'cols': ['a'], 'pd': pd, 'Path': Path}
     with pytest.raises(RuntimeError, match='ts_rsi'):
         exec(source, env)
+
+
+def test_factor_notebook_loads_only_dates_0_through_400(tmp_path):
+    load = notebook_function(ROOT / 'Feature Engineer/Factor/Factor/Factor.ipynb', 'load_real_data', {'pd': pd, 'os': os})
+    path = tmp_path / 'dates.csv'
+    pd.DataFrame({'stock_id': [1, 1, 1, 1], 'date_id': [-1, 0, 400, 401], 'seconds_in_bucket': [0, 0, 0, 0], 'near_price': [1., 2., 3., 4.], 'far_price': [1., 2., 3., 4.]}).to_csv(path,index=False)
+    assert load(path).date_id.tolist() == [0, 400]
+
+
+def test_operator_notebook_loads_only_dates_0_through_400(tmp_path, monkeypatch):
+    from src.feature_pipeline import sort_panel
+    notebook = json.loads((OPERATOR_DIR/'test.ipynb').read_text())
+    factor = tmp_path/'Factor/Factor'; operator = tmp_path/'Operator'
+    factor.mkdir(parents=True); operator.mkdir()
+    pl.DataFrame({'stock_id':[1,1,1,1], 'date_id':[-1,0,400,401], 'seconds_in_bucket':[0,0,0,0], 'target':[0.,0.,0.,0.], 'signal':[1.,2.,3.,4.]}).write_parquet(factor/'train_auction_features.parquet')
+    monkeypatch.chdir(operator)
+    env={'pl':pl,'Path':Path,'sort_panel':sort_panel,'clip_extreme_values':lambda df,cols:df,'DEFAULT_EXCLUDE_COLS':['stock_id','date_id','seconds_in_bucket','target','time_id','row_id'],'display':lambda *_:None}
+    exec(''.join(notebook['cells'][11]['source']),env)
+    assert env['df']['date_id'].to_list() == [0,400]
